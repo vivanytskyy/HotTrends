@@ -4,46 +4,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import com.gmail.ivanytskyy.vitaliy.hottrends.adapter.TrendListAdapter;
-import com.gmail.ivanytskyy.vitaliy.hottrends.service.Link;
+import com.gmail.ivanytskyy.vitaliy.hottrends.service.CustomCallback;
 import com.gmail.ivanytskyy.vitaliy.hottrends.model.Trend;
+import com.gmail.ivanytskyy.vitaliy.hottrends.service.TrendRequestImpl;
 import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Vitaliy Ivanytskyy on 08.06.2016.
  */
 public class TrendListFragment extends ListFragment {
     private String mUrl;
-    private Link mLink;
-    private List<Trend> trends;
-    private Retrofit mRetrofit;
     TrendListAdapter adapter;
     public static final String EXTRA_BASE_URL = "com.gmail.ivanytskyy.vitaliy.hottrends.fragment.trendslistfragment.url";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mUrl = getArguments().getString(EXTRA_BASE_URL);
-        mRetrofit = new Retrofit.Builder()
-                .baseUrl(mUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        mLink = mRetrofit.create(Link.class);
-        Call<List<Trend>> call = mLink.getTrends();
-        call.enqueue(new Callback<List<Trend>>() {
+        TrendRequestImpl request = new TrendRequestImpl(mUrl);
+        request.obtainDataList(new CustomCallback<List<Trend>>() {
             @Override
-            public void onResponse(Call<List<Trend>> call, Response<List<Trend>> response) {
-                trends = response.body();
-                adapter = new TrendListAdapter(TrendListFragment.this.getActivity(), trends);
+            public void next(List<Trend> results) {
+                adapter = new TrendListAdapter(getActivity(), results);
                 setListAdapter(adapter);
-            }
-            @Override
-            public void onFailure(Call<List<Trend>> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
