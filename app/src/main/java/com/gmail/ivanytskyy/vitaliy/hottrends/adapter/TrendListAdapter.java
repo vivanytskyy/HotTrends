@@ -56,7 +56,7 @@ public class TrendListAdapter extends BaseAdapter {
         Picasso.with(mContext)
                 .load(trend.getImageBlur())
                 .into(holder.mImageView);
-        holder.mTitle.setText(trend.getTitle());
+        holder.mTitle.setText(trend.getTitle().toUpperCase());
         holder.mCreator.setText(trend.getCreator());
         return view;
     }

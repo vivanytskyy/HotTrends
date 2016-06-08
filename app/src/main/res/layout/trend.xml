@@ -6,20 +6,31 @@
     <ImageView
         android:id="@+id/trendBlurImageView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"/>
-    <TextView
-        android:id="@+id/creatorTextView"
+        android:layout_height="@dimen/image_height_normal"
+        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/creator_test_string"
-        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_alignBottom="@+id/trendBlurImageView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="56dp"/>
-    <TextView
-        android:id="@+id/productTitleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_test_string"
-        android:layout_below="@+id/creatorTextView"
-        android:layout_alignParentStart="true"/>
+        android:layout_marginBottom="36dp">
+        <TextView
+            android:id="@+id/creatorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/creator_test_string"
+            android:layout_marginLeft="@dimen/spacing_tiny"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/productTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_test_string"
+            android:layout_marginLeft="@dimen/spacing_tiny"
+            android:textSize="@dimen/font_larger"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 </RelativeLayout>
