@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
-import com.gmail.ivanytskyy.vitaliy.hottrends.R;
+import com.gmail.ivanytskyy.vitaliy.hottrends.adapter.TrendListAdapter;
 import com.gmail.ivanytskyy.vitaliy.hottrends.service.Link;
 import com.gmail.ivanytskyy.vitaliy.hottrends.model.Trend;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +22,7 @@ public class TrendListFragment extends ListFragment {
     private Link mLink;
     private List<Trend> trends;
     private Retrofit mRetrofit;
+    TrendListAdapter adapter;
     public static final String EXTRA_BASE_URL = "com.gmail.ivanytskyy.vitaliy.hottrends.fragment.trendslistfragment.url";
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,26 +38,14 @@ public class TrendListFragment extends ListFragment {
             @Override
             public void onResponse(Call<List<Trend>> call, Response<List<Trend>> response) {
                 trends = response.body();
-                //Toast.makeText(getActivity(), trends.size() + "", Toast.LENGTH_LONG).show();
+                adapter = new TrendListAdapter(TrendListFragment.this.getActivity(), trends);
+                setListAdapter(adapter);
             }
             @Override
             public void onFailure(Call<List<Trend>> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-        String[] versionName = getResources().getStringArray(R.array.test_items);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, versionName);
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Toast.makeText(getActivity(), trends.size() + "", Toast.LENGTH_LONG).show();
-        /*
-        TrendListAdapter adapter = new TrendListAdapter(getActivity(), trends);
-        */
-
-        setListAdapter(adapter);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
