@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HotTrends</string>
+    <string name="creator_test_string">creator</string>
+    <string name="title_test_string">title</string>
+    <array name="test_items">
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+    </array>
+</resources>
