@@ -4,9 +4,14 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- font sizes -->
-    <dimen name="font_larger">22sp</dimen>
-    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_huge">28sp</dimen>
+    <dimen name="font_medium_larger">26sp</dimen>
+    <dimen name="font_larger">24sp</dimen>
+    <dimen name="font_medium_large">22sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_medium_normal">18sp</dimen>
     <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_medium_small">14sp</dimen>
     <dimen name="font_small">12sp</dimen>
 
     <!-- my typical spacing between two views -->

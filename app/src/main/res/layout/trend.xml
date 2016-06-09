@@ -7,30 +7,41 @@
         android:id="@+id/trendBlurImageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/image_height_normal"
+        android:src="@drawable/bream"
         android:scaleType="centerCrop"/>
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginBottom="15dp"
         android:layout_alignBottom="@+id/trendBlurImageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="36dp">
+        android:layout_alignParentStart="true">
         <TextView
             android:id="@+id/creatorTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/creator_test_string"
-            android:layout_marginLeft="@dimen/spacing_tiny"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:textColor="@color/white_smoke"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_normal"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="@integer/horizontal_shadow_value_small"
+            android:shadowDy="@integer/vertical_shadow_value_small"
+            android:shadowRadius="@integer/shadow_radius_value_tiny"/>
         <TextView
             android:id="@+id/productTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
             android:text="@string/title_test_string"
-            android:layout_marginLeft="@dimen/spacing_tiny"
-            android:textSize="@dimen/font_larger"
-            android:textColor="@color/white"/>
+            android:textSize="@dimen/font_medium_larger"
+            android:textColor="@color/white"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="@integer/horizontal_shadow_value_small"
+            android:shadowDy="@integer/vertical_shadow_value_small"
+            android:shadowRadius="@integer/shadow_radius_value_tiny"/>
     </LinearLayout>
 </RelativeLayout>

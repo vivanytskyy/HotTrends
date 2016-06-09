@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TrendRequestImpl implements Request<List<Trend>>{
     private Retrofit mRetrofitBuilder;
     private Link mLink;
-    public TrendRequestImpl(String baseUrl){
-        mRetrofitBuilder = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
+    public TrendRequestImpl(){
+        mRetrofitBuilder = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
     }
     @Override
     public void obtainDataList(final CustomCallback<List<Trend>> callback) {

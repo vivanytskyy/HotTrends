@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.gmail.ivanytskyy.vitaliy.hottrends.R;
 import com.gmail.ivanytskyy.vitaliy.hottrends.fragment.TrendListFragment;
 public class TrendsActivity extends AppCompatActivity {
-    public static final String BASE_URL = "http://geekinformer.net";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,8 +13,17 @@ public class TrendsActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.fragmentContainer);
         if(fragment == null){
-            fragment = TrendListFragment.newInstance(BASE_URL);
+            fragment = TrendListFragment.newInstance();
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
         }
+        /*// For testing
+        Button button = (Button) findViewById(R.id.startActivityButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrendsActivity.this, SecondActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });*/
     }
 }

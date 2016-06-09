@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Vertical shadow-->
+    <integer name="vertical_shadow_value_medium">2</integer>
+    <integer name="vertical_shadow_value_small">2</integer>
+    <integer name="vertical_shadow_value_tiny">1</integer>
+    <!-- Horizontal shadow-->
+    <integer name="horizontal_shadow_value_medium">2</integer>
+    <integer name="horizontal_shadow_value_small">2</integer>
+    <integer name="horizontal_shadow_value_tiny">1</integer>
+    <!-- Shadow radius-->
+    <integer name="shadow_radius_value_medium">3</integer>
+    <integer name="shadow_radius_value_small">2</integer>
+    <integer name="shadow_radius_value_tiny">1</integer>
+</resources>
