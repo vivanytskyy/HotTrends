@@ -8,7 +8,7 @@ import com.gmail.ivanytskyy.vitaliy.hottrends.adapter.TrendListAdapter;
 import com.gmail.ivanytskyy.vitaliy.hottrends.service.CustomCallback;
 import com.gmail.ivanytskyy.vitaliy.hottrends.model.Trend;
 import com.gmail.ivanytskyy.vitaliy.hottrends.service.Request;
-import com.gmail.ivanytskyy.vitaliy.hottrends.service.TrendRequestImpl;
+import com.gmail.ivanytskyy.vitaliy.hottrends.service.TrendRequestWithRxJavaAndRetrofitImpl;
 import java.util.List;
 /**
  * Created by Vitaliy Ivanytskyy on 08.06.2016.
@@ -18,7 +18,7 @@ public class TrendListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Request request = new TrendRequestImpl();
+        Request request = new TrendRequestWithRxJavaAndRetrofitImpl();
         request.obtainDataList(new CustomCallback<List<Trend>>() {
             @Override
             public void next(List<Trend> results) {
