@@ -7,7 +7,6 @@
         android:id="@+id/trendBlurImageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/image_height_normal"
-        android:src="@drawable/bream"
         android:scaleType="centerCrop"/>
     <LinearLayout
         android:id="@+id/linearLayout"
